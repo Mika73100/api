@@ -1,18 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Création de l'app : 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+npx create-next-app@latest
+
+Entrée partout jusqu'à la création (>.<)
+
+```bash START
+
+Started : npm run dev
+
+
+# INSTALL PRISMA
+
+1   npm install prisma --save-dev
+2   npx prisma init --datasource-provider sqlite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
