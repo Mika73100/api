@@ -4,11 +4,11 @@ import bcrypt from "bcrypt";
 
 
 
-////////////////////CREATION DES ROUTES RESTAURANT////////////////////
+////////////////////CREATION DES ROUTES EMPLOYEES////////////////////
 
 
 
-const prisma = new PrismaClient()
+export const prisma = new PrismaClient()
 
 
 
@@ -17,13 +17,13 @@ const prisma = new PrismaClient()
 export async function GET(request: Request) {
 
   try {
-    const restaurants = await prisma.restaurant.findMany();
+    const employees = await prisma.employee.findMany();
 
-    return NextResponse.json(restaurants, { status: 200 });
+    return NextResponse.json(employees, { status: 200 });
 
   } catch (error) {
 
-    return NextResponse.json({ error: 'failed to fetch restaurants' }, { status: 500 });
+    return NextResponse.json({ error: 'failed to fetch employees' }, { status: 500 });
   }
 }
 
@@ -34,7 +34,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
 
   try {
-    const { name, address, email, role, password } = await request.json()
+    const { firstName, lastName, email, role, password, restaurantId } = await request.json()
 
     //Vérifier que l'email est une chaine de caractères valide.
     if (!email || typeof email !== 'string') {
@@ -50,13 +50,13 @@ export async function POST(request: Request) {
     const hashedPassword = await bcrypt.hash(password, 10); // Assurez-vous d'importer bcrypt
 
     //Création d'un nouveau restaurant avec Prisma.
-    const newRestaurant = await prisma.restaurant.create({
-      data: { name, address, email, role, password: hashedPassword } // Utiliser le mot de passe crypté
+    const newEmployee = await prisma.employee.create({
+      data: { firstName, lastName, email, role, password: hashedPassword, restaurantId } // Utiliser le mot de passe crypté
     })
 
-    return NextResponse.json(newRestaurant, { status: 201 });
+    return NextResponse.json(newEmployee, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'failed to create restaurant' }, { status: 500 })
+    return NextResponse.json({ error: 'failed to create employee' }, { status: 500 })
   }
 }
 
@@ -77,15 +77,15 @@ export async function PATCH(request: Request) {
       data.password = hashedPassword; // Remplacer le mot de passe en clair par le mot de passe crypté
     }
 
-    const updatedRestaurant = await prisma.client.update({
+    const updatedEmployee = await prisma.employee.update({
       where: { id },
       data,
     });
 
-    return NextResponse.json(updatedRestaurant, { status: 200 });
+    return NextResponse.json(updatedEmployee, { status: 200 });
 
   } catch (error) {
-    return NextResponse.json({ error: "Failed to update client" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to update employee" }, { status: 500 });
   }
 }
 
@@ -101,14 +101,14 @@ export async function DELETE(request: Request) {
     if (!id || typeof id !== 'number') {
       return NextResponse.json({ error: 'ID is required and must be a number' }, { status: 400 });
     }
-    const deletedRestaurant = await prisma.restaurant.delete({
+    const deleteEmployee = await prisma.employee.delete({
       where: { id }
     });
 
-    return NextResponse.json(deletedRestaurant, { status: 200 });
+    return NextResponse.json(deleteEmployee, { status: 200 });
 
   } catch (error) {
 
-    return NextResponse.json({ error: 'Failed to delete restaurant' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to delete employee' }, { status: 500 });
   }
 }
