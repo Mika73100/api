@@ -1,4 +1,11 @@
 
+# Les routes : 
+
+connexion : http://localhost:3000/auth/signin
+
+
+
+
 ## Getting Started
 
 Création de l'app : 
@@ -30,3 +37,8 @@ Started : npm run dev
 
 
 
+
+
+
+
+//(https://www.youtube.com/watch?v=dbvVbr07trg)
