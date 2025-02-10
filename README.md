@@ -37,6 +37,12 @@ Started : npm run dev
 
 
 
+# Auth avec next
+
+1 npm install next-auth
+
+
+
 
 
 
