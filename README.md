@@ -1,6 +1,7 @@
 # Les routes : 
 
 connexion : http://localhost:3000/auth/signin
+
 inscription : http://localhost:3000/auth/signout
 
 authentifer : http://localhost:3000/api/auth/session
@@ -49,6 +50,3 @@ Started : npm run dev
 
 ## Screenshot
 
-![screen de l'image](300shots_so.png)
-
-![screen de l'image](638shots_so.png)
