@@ -2,7 +2,11 @@
 # Les routes : 
 
 connexion : http://localhost:3000/auth/signin
+inscription : http://localhost:3000/auth/signout
+
 authentifer : http://localhost:3000/api/auth/session
+
+data : http://localhost:3000/api/restaurants
 
 
 
@@ -44,8 +48,8 @@ Started : npm run dev
 
 
 
+## Screenshot
 
+![screen de l'image](public/300shots_so.png)
 
-
-
-//(https://www.youtube.com/watch?v=dbvVbr07trg)
+![screen de l'image](public/638shots_so.png)
