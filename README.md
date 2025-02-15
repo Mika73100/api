@@ -1,4 +1,3 @@
-
 # Les routes : 
 
 connexion : http://localhost:3000/auth/signin
@@ -50,6 +49,6 @@ Started : npm run dev
 
 ## Screenshot
 
-![screen de l'image](public/300shots_so.png)
+![screen de l'image](300shots_so.png)
 
-![screen de l'image](public/638shots_so.png)
+![screen de l'image](638shots_so.png)
