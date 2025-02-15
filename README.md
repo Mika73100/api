@@ -9,8 +9,6 @@ authentifer : http://localhost:3000/api/auth/session
 data : http://localhost:3000/api/restaurants
 
 
-
-
 ## Getting Started
 
 Création de l'app : 
@@ -49,4 +47,14 @@ Started : npm run dev
 
 
 ## Screenshot
+
+<div align="center"><br>
+
+<img src="https://github.com/Mika73100/api/blob/main/public/300shots_so.png" />
+
+<img src="https://github.com/Mika73100/api/blob/main/public/638shots_so.png" />
+        
+</div>
+
+
 
