@@ -2,6 +2,7 @@
 # Les routes : 
 
 connexion : http://localhost:3000/auth/signin
+authentifer : http://localhost:3000/api/auth/session
 
 
 

@@ -14,7 +14,7 @@ model Restaurant {
   name        String
   address     String
   email       String      @unique
-  role        String
+  role        String      @default("ADMIN")
   password    String
   events      Event[]
   menus       Menu[]
@@ -37,7 +37,7 @@ model Client {
   firstName      String
   lastName       String
   email          String        @unique
-  role           String
+  role           String        @default("USER")
   password       String
   reservations   Reservation[]
 }
