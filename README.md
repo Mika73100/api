@@ -1,7 +1,7 @@
 
 ## Screenshot
 
-<img src="https://github.com/Mika73100/api/blob/master/public/300shots_so.png"/>
+<img src="https://github.com/Mika73100/api/blob/main/public/300shots_so.png"/>
 
 <img src="https://github.com/Mika73100/api/blob/main/public/638shots_so.png"/>
 
