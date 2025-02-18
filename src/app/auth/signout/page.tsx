@@ -3,25 +3,32 @@
 import { signIn } from "next-auth/react";
 import { useState } from 'react';
 
-export default function SignOut() {
+
+export default function Register() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [role, setRole] = useState('');
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = async () => {
-    const response = await fetch('/api/auth/register', {
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const response = await fetch('/api/clients', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ firstName, lastName, email, role, password }),
     });
 
     if (response.ok) {
-      // Connexion après l'enregistrement
-      await signIn('credentials', { email, password });
+      const newClient = await response.json();
+      console.log('Client créé:', newClient);
     } else {
-      // Gérer les erreurs
-      console.error('Erreur lors de l\'enregistrement');
+      const errorData = await response.json();
+      console.error('Erreur lors de la création du client:', errorData.error);
     }
   };
 

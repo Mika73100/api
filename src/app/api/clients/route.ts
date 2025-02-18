@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     // Crypter le mot de passe.
     const hashedPassword = await bcrypt.hash(password, 10); // Assurez-vous d'importer bcrypt
 
-    //Création d'un nouveau restaurant avec Prisma.
+    //Création d'un nouveau client avec Prisma.
     const newClient = await prisma.client.create({
       data: { firstName, lastName, email, role, password: hashedPassword } // Utiliser le mot de passe crypté
     })
