@@ -31,12 +31,12 @@ export async function GET(request: Request) {
 
 ////////////// POST //////////////
 
+
 export async function POST(request: Request) {
-
   try {
-    const { firstName, lastName, email, role, password } = await request.json()
+    const { firstName, lastName, email, password } = await request.json();
 
-    //Vérifier que l'email est une chaine de caractères valide.
+    // Vérifier que l'email est une chaîne de caractères valide.
     if (!email || typeof email !== 'string') {
       return NextResponse.json({ error: 'Email is required and must be a string' }, { status: 400 });
     }
@@ -47,19 +47,21 @@ export async function POST(request: Request) {
     }
 
     // Crypter le mot de passe.
-    const hashedPassword = await bcrypt.hash(password, 10); // Assurez-vous d'importer bcrypt
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    //Création d'un nouveau client avec Prisma.
+    // Utiliser "USER" comme rôle par défaut
+    const userRole = "USER";
+
+    // Création d'un nouveau client avec Prisma.
     const newClient = await prisma.client.create({
-      data: { firstName, lastName, email, role, password: hashedPassword } // Utiliser le mot de passe crypté
-    })
+      data: { firstName, lastName, email, role: userRole, password: hashedPassword } // Utiliser le mot de passe crypté
+    });
 
     return NextResponse.json(newClient, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: 'failed to create client' }, { status: 500 })
+    return NextResponse.json({ error: 'failed to create client' }, { status: 500 });
   }
 }
-
 
 ////////////// UPDATE //////////////
 
