@@ -11,7 +11,7 @@ export default function AuthButton() {
         <button onClick={() => signIn()}>Se connecter</button>
       ) : (
         <>
-          <p>Bienvenue, {session?.user?.name}</p>
+          <p>Bienvenue, {session?.user?.name}  {session?.user?.email}</p>
           <button onClick={() => signOut()}>Se déconnecter</button>
         </>
       )}

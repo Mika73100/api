@@ -11,7 +11,9 @@ MDP : Testdu73
 
 <img src="https://github.com/Mika73100/api/blob/main/public/638shots_so.png"/>
 
+# Consommation de l'API en GET
 
+<img src="https://github.com/Mika73100/api/blob/main/public/get.png"/>
 
 # Les routes : 
 
